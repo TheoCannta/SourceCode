@@ -14,6 +14,13 @@ public class Warmup {
         return fibonancci(n - 1) + fibonancci(n - 2);
     }
 
+    /**
+     * Use recursion to find the largest element in an array of integers
+     * 
+     * @param numbers
+     * @param index
+     * @return
+     */
     public static int largest(int[] numbers, int index) {
         // FIXME
         if (true) {
