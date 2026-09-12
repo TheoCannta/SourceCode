@@ -12,7 +12,19 @@ public class CountXWithDubs {
 	 * @return the count of x's.
 	 */
 	public static int countXWithDubs(String s) {
+		if (s.equals("")){
 		return 0;
+		}else if ((s.length()==1)&&(s.equals("x")==false)){
+			return 0;
+		}else if ((s.length()==1)&&(s.equals("x"))){
+			return 1;
+		}else {
+			if(s.substring(0,1).equals("x")&&(s.substring(1,2).equals("x"))){
+				return (countXWithDubs(s.substring(0,1))*2)+countXWithDubs(s.substring(1));
+			}
+			 return countXWithDubs(s.substring(0,1))+countXWithDubs(s.substring(1));
+		}
+		
 	}
 
 	@Test
