@@ -51,10 +51,37 @@ public class Combinations {
 	 */
 	private static ArrayList<String> combinations(String prefix, String rest,
 			int k) {
-		recursiveCalls++;
-		
 
-		return null;
+
+				ArrayList<String> perms = new ArrayList<String>();
+
+
+		if ((rest.length() <= 1) && k==1) {
+			// s is its own (and only) permutation.
+			perms.add(rest);
+			return perms;
+		} else {
+			
+			// For each character c in s
+			for (int i = 0; i < rest.length(); i++) {
+				char ch = rest.charAt(i);
+				
+				// Get the permutations of s without c
+				String noCh = rest.substring(0, i) + rest.substring(i + 1);
+				ArrayList<String> subPerms = combinations(noCh,k);			// Line 1
+				
+				// Prepend c to each of the permutations of s without c
+				for (String sp : subPerms) {
+					if(sp.length()==k){
+					perms.add(new String(ch + sp));
+					}
+				}
+			}
+
+			return perms;
+		}
+
+	
 	}
 
 	public static void main(String[] args) {
