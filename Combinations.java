@@ -73,16 +73,19 @@ public class Combinations {
 				// Prepend c to each of the permutations of s without c
 				for (String sp : subPerms) {
 					if(sp.length()==k){
-					perms.add(new String(ch + sp));
+					perms.add((ch + sp));
 					}
 				}
 			}
-
+			recursiveCalls++;
 			return perms;
 		}
 
-	
 	}
+
+
+	
+	
 
 	public static void main(String[] args) {
 		ArrayList<String> subs = combinations("ABCDE", 2);
@@ -169,4 +172,5 @@ public class Combinations {
 		ArrayList<String> comb = combinations("ABCDE",4);
 		assertEquals("Incorrect number of combinations.", 5, comb.size());
 	}
+}
 }
